@@ -1,6 +1,6 @@
 # Pause Token을 활용한 한국어 언어모델 Fine-tuning
 
-이 프로젝트는 논문 [**"THINK BEFORE YOU SPEAK: TRAINING LANGUAGE MODELS WITH PAUSE TOKENS"**](https://arxiv.org/abs/2207.07696)을 기반으로, 한국어 언어모델에 Pause Token을 적용하여 Fine-tuning하는 코드입니다.
+이 프로젝트는 논문 [**"THINK BEFORE YOU SPEAK: TRAINING LANGUAGE MODELS WITH PAUSE TOKENS"**](https://arxiv.org/abs/2310.02226)을 기반으로, 한국어 언어모델에 Pause Token을 적용하여 Fine-tuning하는 코드입니다.
 
 ## 프로젝트 개요
 

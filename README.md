@@ -21,20 +21,15 @@
 
 #### 1. KorQuAD (Korean Question Answering Dataset)
 
-- **설명**: KorQuAD는 한국어로 구성된 기계 독해 데이터셋으로, 질문과 문맥, 그리고 정답으로 구성되어 있습니다. 주로 기계 독해 및 질의응답 태스크에서 사용됩니다.
 - **구성**:
   - 학습 데이터: 약 6만 개의 질의응답 쌍
   - 검증 데이터: 약 5천 개의 질의응답 쌍
-- **사용 목적**: Pause Token을 적용하여 모델의 독해 능력 향상을 평가하기 위해 사용되었습니다.
 
 #### 2. KLUE NLI (Korean Language Understanding Evaluation - Natural Language Inference)
 
-- **설명**: KLUE NLI는 한국어 자연어 추론(NLI) 데이터셋으로, 두 문장(전제와 가설)의 관계를 판단하는 태스크에 사용됩니다. 관계는 참(entailment), 거짓(contradiction), 중립(neutral) 세 가지로 분류됩니다.
 - **구성**:
   - 학습 데이터: 약 25,000개의 문장 쌍
   - 검증 데이터: 약 3,000개의 문장 쌍
-- **사용 목적**: Pause Token이 자연어 추론 태스크에서 모델의 성능에 미치는 영향을 평가하기 위해 사용되었습니다.
-
 
 ## 주요 기능
 

@@ -1,0 +1,10 @@
+Dataset,Model,Pause Tokens,Trainer,Preprocessing,Evaluation Result,Training Time (s),exact_match,f1,accuracy
+KLUE NLI,skt/kogpt2-base-v2,5,CustomTrainer,append,,1555.053611755371,,0.3923523026000958,0.3813103448275862
+KorQuAD,skt/kogpt2-base-v2,5,CustomTrainer,append,,4386.95863032341,0.33379800302781665,0.32407606193216904,
+
+KLUE NLI,skt/kogpt2-base-v2,10,CustomTrainer,append,,1599.550369977951,,0.3877943976732677,0.3757142857142857
+KorQuAD,skt/kogpt2-base-v2,10,CustomTrainer,append,,4812.080104112625,0.3310943761119467,0.3224437927638836,
+
+KLUE NLI,skt/kogpt2-base-v2,0,CustomTrainer,append,,1507.2408344745636,,0.4049552952180448,0.389961345675189
+KorQuAD,skt/kogpt2-base-v2,0,CustomTrainer,append,,3640.55376124382,0.30147971557521674,0.29393953325849725,
+

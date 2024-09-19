@@ -27,3 +27,41 @@ conda create -n pause_env python=3.8
 
 # 가상환경 활성화
 conda activate pause_env
+```
+
+### 2. 필요한 패키지 설치
+```bash
+pip install -r requirements.txt
+```
+
+주의: torch는 CUDA 버전 등에 따라 설치 방법이 다르므로, 직접 설치하시기 바랍니다.
+예를 들어, CUDA 11.1을 사용하는 경우:
+```bash
+conda install pytorch torchvision torchaudio cudatoolkit=11.1 -c pytorch -c nvidia
+```
+
+
+### 3. 코드 실행
+main.py를 실행하여 모델을 학습하고 평가할 수 있습니다. 실행 시 에포크 수와 배치사이즈를 조절할 수 있습니다.
+
+기본 실행
+```bash
+python main.py
+```
+에포크 수와 배치사이즈 조절
+```bash
+python main.py --epochs 10 --train_batch_size 16 --eval_batch_size 32
+```
+
+여러 GPU를 사용하여 분산 학습을 수행하려면 `torchrun`을 사용합니다.
+```bash
+torchrun --nproc_per_node=NUM_GPUS_YOU_HAVE main.py --epochs 10 --train_batch_size 16 --eval_batch_size 32
+```
+--nproc_per_node: 한 노드에서 실행할 프로세스 수로, 일반적으로 사용할 GPU 수와 동일합니다.
+--epochs, --train_batch_size, --eval_batch_size: 앞서 정의한 학습 관련 인자들입니다.
+예를 들어, 4개의 GPU를 사용하고 싶다면:
+
+```bash
+torchrun --nproc_per_node=4 main.py --epochs 10 --train_batch_size 16 --eval_batch_size 32
+```
+

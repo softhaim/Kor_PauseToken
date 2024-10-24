@@ -12,7 +12,8 @@ korean_prefixes = [
 # 전처리 함수: 접두사 앞에 pause token 추가 (preappend)
 def preprocess_data_with_pause_before_prefix(examples, tokenizer, task, num_pause_tokens):
     if task == 'korquad':
-        inputs = [q + tokenizer.eos_token + a for q, a in zip(examples["question"], examples["context"])]
+        inputs = [a + tokenizer.eos_token + q for q, a in zip(examples["question"], examples["context"])]
+        labels = examples['label']
     elif task == 'klue_nli':
         inputs = [premise + tokenizer.eos_token + hypothesis for premise, hypothesis in zip(examples['premise'], examples['hypothesis'])]
         labels = examples['label']
@@ -43,8 +44,7 @@ def preprocess_data_with_pause_before_prefix(examples, tokenizer, task, num_paus
 
     model_inputs = tokenizer(processed_inputs, max_length=512, truncation=True, padding="max_length", return_tensors="pt")
 
-    if task != 'korquad':
-        model_inputs["labels"] = labels
+    model_inputs["labels"] = labels
         
     # print("=== Tokenization Results ===")
     # for i, input_text in enumerate(processed_inputs):
@@ -58,7 +58,8 @@ def preprocess_data_with_pause_before_prefix(examples, tokenizer, task, num_paus
 # 전처리 함수: 접두사 뒤에 pause token 추가 (append)
 def preprocess_data_with_pause_after_prefix(examples, tokenizer, task, num_pause_tokens):
     if task == 'korquad':
-        inputs = [q + tokenizer.eos_token + a for q, a in zip(examples["question"], examples["context"])]
+        inputs = [a + tokenizer.eos_token + q for q, a in zip(examples["question"], examples["context"])]
+        labels = examples['label']
     elif task == 'klue_nli':
         inputs = [premise + tokenizer.eos_token + hypothesis for premise, hypothesis in zip(examples['premise'], examples['hypothesis'])]
         labels = examples['label']
@@ -90,7 +91,6 @@ def preprocess_data_with_pause_after_prefix(examples, tokenizer, task, num_pause
 
     model_inputs = tokenizer(processed_inputs, max_length=512, truncation=True, padding="max_length", return_tensors="pt")
 
-    if task != 'korquad':
-        model_inputs["labels"] = labels
+    model_inputs["labels"] = labels
 
     return model_inputs
